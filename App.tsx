@@ -11,7 +11,7 @@ import {
   Image,
 } from "react-native";
 import { Paragraph } from "./Components/Paragraph";
-import { Heading } from "./Components/Heading";
+import { Heading } from "./Components/Header";
 import { Layout } from "./Layout/Layout";
 import { Home } from "./Screens/Home";
 import styled from "styled-components/native";

@@ -19,7 +19,7 @@ export function Heading() {
   return (
     <Container>
       <Title>
-        <Text>Hello! I am a Heading!</Text>
+        <Text>Hello! I am a Header!</Text>
       </Title>
     </Container>
   );

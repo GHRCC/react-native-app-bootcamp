@@ -1,19 +1,22 @@
 import { Button, Alert } from "react-native";
 import styled from "styled-components/native";
 
-type ButtonProps = {
-  title: string;
-  onPress: () => void;
-};
+export function ButtonComponent() {
+  //const falses = false;
 
-export function ButtonComponent({ title, onPress }: ButtonProps) {
-  const ButtonDesign = styled.Button`
-    background-color: orange;
+  const SButton = styled.Button`
+    background-color: blue !important;
+
+    //background-color: ${(props) => (props.cor ? "orange" : "green")};
   `;
 
+  //esse SContainer é uma View, criamos estilo com a capacidade de acrescentar lógica JS para definir o estilo
+
   return (
-    <ButtonDesign>
-      <Button title="Press Me" onPress={() => Alert.alert("Button pressed")} />
-    </ButtonDesign>
+    <SButton
+      title="Press"
+      onPress={() => Alert.alert("Button pressed")}
+      //cor={falses}
+    ></SButton>
   );
 }

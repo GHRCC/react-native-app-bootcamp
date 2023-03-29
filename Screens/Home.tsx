@@ -11,7 +11,7 @@ import {
   Image,
 } from "react-native";
 import { Paragraph } from "../Components/Paragraph";
-import { Heading } from "../Components/Heading";
+import { Heading } from "../Components/Header";
 import { Layout } from "../Layout/Layout";
 import styled from "styled-components/native";
 import { ButtonComponent } from "../Components/Button";
@@ -19,28 +19,21 @@ import { TextField } from "../Components/TextInput";
 
 export function Home() {
   const [text, setText] = useState("string");
-  const LayoutOp = styled.View`
-    justify-content: center;
-    align-items: center;
-  `;
-  const FontDesign = styled.Text`
+
+  /*const FontDesign = styled.Text`
     font-family: Helvetica;
-    font-size: 20px;
+    font-size: 28px;
     text-align: center;
-    margin-top: 20px;
-  `;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+  `;*/
   return (
     <View>
       <Heading />
       <Paragraph />
-      <TextField
-        placeholder="Learning React-Native"
-        onChange={() => setText("string")}
-      />
-      <ButtonComponent
-        title="Press Me"
-        onPress={() => Alert.alert("Button pressed")}
-      />
+      <TextField />
+      <ButtonComponent />
     </View>
   );
 }
