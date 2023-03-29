@@ -1,15 +1,26 @@
 import { Text, View, StyleSheet } from "react-native";
+import styled from "styled-components/native";
 
 export function Heading() {
+  const Container = styled.View`
+    color: black;
+    margin-top: 80px;
+    background-color: #32ebd9;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+  `;
+  const Title = styled.Text`
+    font-size: 40px;
+    text-align: center;
+    font-family: Helvetica;
+  `;
+
   return (
-    <View>
-      <Text style={styles.headingStyle}>I am a Heading!</Text>
-    </View>
+    <Container>
+      <Title>
+        <Text>Hello! I am a Heading!</Text>
+      </Title>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  headingStyle: {
-    fontSize: 40,
-  },
-});
