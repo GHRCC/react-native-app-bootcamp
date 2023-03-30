@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { useState } from "react";
@@ -22,19 +23,21 @@ import { NotepadCreate } from "./Screens/NotepadCreate";
 import { NotepadEdit } from "./Screens/NotepadEdit";
 import { NotepadList } from "./Screens/NotepadList";
 import { NotepadView } from "./Screens/NotepadView";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={screens.Home}>
-        <Stack.Screen name={screens.Home} component={Home} />
-        <Stack.Screen name={screens.NotepadCreate} component={NotepadCreate} />
-        <Stack.Screen name={screens.NotepadEdit} component={NotepadEdit} />
-        <Stack.Screen name={screens.NotepadList} component={NotepadList} />
-        <Stack.Screen name={screens.NotepadView} component={NotepadView} />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName={screens.Home}>
+        <Drawer.Screen name={screens.Home} component={Home} />
+        <Drawer.Screen name={screens.NotepadCreate} component={NotepadCreate} />
+        <Drawer.Screen name={screens.NotepadEdit} component={NotepadEdit} />
+        <Drawer.Screen name={screens.NotepadList} component={NotepadList} />
+        <Drawer.Screen name={screens.NotepadView} component={NotepadView} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

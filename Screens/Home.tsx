@@ -36,30 +36,6 @@ export function Home({
   `;*/
   return (
     <View>
-      <Button
-        title="Create Notepad"
-        onPress={() => {
-          navigation.navigate(screens.NotepadCreate);
-        }}
-      />
-      <Button
-        title="Edit Notepad"
-        onPress={() => {
-          navigation.navigate(screens.NotepadEdit);
-        }}
-      />
-      <Button
-        title="Notepad List"
-        onPress={() => {
-          navigation.navigate(screens.NotepadList);
-        }}
-      />
-      <Button
-        title="View Notepads"
-        onPress={() => {
-          navigation.navigate(screens.NotepadView);
-        }}
-      />
       <Header />
       <Paragraph />
       <TextField />
