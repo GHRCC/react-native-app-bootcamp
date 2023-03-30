@@ -11,13 +11,19 @@ import {
   Image,
 } from "react-native";
 import { Paragraph } from "../Components/Paragraph";
-import { Heading } from "../Components/Header";
+import { Header } from "../Components/Header";
 import { Layout } from "../Layout/Layout";
 import styled from "styled-components/native";
 import { ButtonComponent } from "../Components/Button";
 import { TextField } from "../Components/TextInput";
+import type { ParamListBase } from "@react-navigation/native";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import screens from "../screens.json";
 
-export function Home() {
+export function Home({
+  navigation,
+  route,
+}: NativeStackScreenProps<ParamListBase>) {
   const [text, setText] = useState("string");
 
   /*const FontDesign = styled.Text`
@@ -30,7 +36,31 @@ export function Home() {
   `;*/
   return (
     <View>
-      <Heading />
+      <Button
+        title="Create Notepad"
+        onPress={() => {
+          navigation.navigate(screens.NotepadCreate);
+        }}
+      />
+      <Button
+        title="Edit Notepad"
+        onPress={() => {
+          navigation.navigate(screens.NotepadEdit);
+        }}
+      />
+      <Button
+        title="Notepad List"
+        onPress={() => {
+          navigation.navigate(screens.NotepadList);
+        }}
+      />
+      <Button
+        title="View Notepads"
+        onPress={() => {
+          navigation.navigate(screens.NotepadView);
+        }}
+      />
+      <Header />
       <Paragraph />
       <TextField />
       <ButtonComponent />

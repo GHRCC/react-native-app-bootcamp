@@ -1,10 +1,10 @@
 import { Text, View, StyleSheet } from "react-native";
 import styled from "styled-components/native";
 
-export function Heading() {
+export function Header() {
   const Container = styled.View`
     color: black;
-    margin-top: 80px;
+
     background-color: #32ebd9;
     height: 70px;
     display: flex;
