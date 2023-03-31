@@ -10,6 +10,7 @@ import {
   TextInput,
   Image,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { Paragraph } from "../Components/Paragraph";
 import { Header } from "../Components/Header";
 import { Layout } from "../Layout/Layout";
@@ -23,21 +24,17 @@ import screens from "../screens.json";
 export function Home({ navigation }) {
   const [text, setText] = useState("string");
 
-  /*const FontDesign = styled.Text`
-    font-family: Helvetica;
-    font-size: 28px;
-    text-align: center;
-    margin-top: 40px;
+  const FontDesign = styled.View`
     display: flex;
-    justify-content: space-between;
-  `;*/
+    align-content: space-around;
+  `;
 
   return (
-    <View>
+    <FontDesign>
       <Header />
       <Paragraph />
       <TextField />
       <ButtonComponent navigation={navigation} />
-    </View>
+    </FontDesign>
   );
 }

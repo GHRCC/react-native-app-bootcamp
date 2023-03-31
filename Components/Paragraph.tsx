@@ -8,6 +8,7 @@ export function Paragraph() {
     text-align: center;
     margin-top: 20px;
     padding: 20px;
+    color: #be4c54;
   `;
 
   return (

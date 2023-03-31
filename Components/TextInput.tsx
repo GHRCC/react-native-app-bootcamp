@@ -9,7 +9,7 @@ export function TextField() {
     margin: auto;
     height: 100px;
     text-align: center;
-    border: solid 2px black;
+    border: solid 2px #be4c54;
     font-size: 20px;
     font-weight: bold;
   `;
