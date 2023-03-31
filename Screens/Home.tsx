@@ -20,10 +20,7 @@ import type { ParamListBase } from "@react-navigation/native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import screens from "../screens.json";
 
-export function Home({
-  navigation,
-  route,
-}: NativeStackScreenProps<ParamListBase>) {
+export function Home({ navigation }) {
   const [text, setText] = useState("string");
 
   /*const FontDesign = styled.Text`
@@ -34,12 +31,13 @@ export function Home({
     display: flex;
     justify-content: space-between;
   `;*/
+
   return (
     <View>
       <Header />
       <Paragraph />
       <TextField />
-      <ButtonComponent />
+      <ButtonComponent navigation={navigation} />
     </View>
   );
 }

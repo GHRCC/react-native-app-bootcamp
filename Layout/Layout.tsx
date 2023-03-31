@@ -1,5 +1,9 @@
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
-export function Layout(image) {
-  return <Image source={require("../assets/marble.webp")} />;
+export function Layout(props) {
+  return (
+    <View>
+      <Image source={require("../assets/marble.webp")} />;
+    </View>
+  );
 }

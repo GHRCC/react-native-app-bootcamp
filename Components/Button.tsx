@@ -1,12 +1,13 @@
 import { Button, Alert } from "react-native";
 import styled from "styled-components/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import screens from "../screens.json";
+import type { ParamListBase } from "@react-navigation/native";
 
-export function ButtonComponent() {
+export function ButtonComponent({ navigation }) {
   //const falses = false;
 
   const SButton = styled.Button`
-    background-color: blue !important;
-
     //background-color: ${(props) => (props.cor ? "orange" : "green")};
   `;
 
@@ -14,8 +15,10 @@ export function ButtonComponent() {
 
   return (
     <SButton
-      title="Press"
-      onPress={() => Alert.alert("Button pressed")}
+      title="Create Notepad"
+      onPress={() => {
+        navigation.navigate(screens.NotepadCreate);
+      }}
       //cor={falses}
     ></SButton>
   );
