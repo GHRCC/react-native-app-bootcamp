@@ -25,6 +25,8 @@ import { NotepadList } from "./Screens/NotepadList";
 import { NotepadView } from "./Screens/NotepadView";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { AntDesign } from "@expo/vector-icons";
+import { Maps } from "./Screens/Map";
+import { Feather } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -75,6 +77,15 @@ export default function App() {
           options={{
             drawerIcon({ color, size }) {
               return <AntDesign name="staro" size={24} color="black" />;
+            },
+          }}
+        />
+        <Drawer.Screen
+          name={screens.Maps}
+          component={Maps}
+          options={{
+            drawerIcon({ color, size }) {
+              return <Feather name="map-pin" size={24} color="black" />;
             },
           }}
         />
