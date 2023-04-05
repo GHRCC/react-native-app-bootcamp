@@ -62,70 +62,82 @@ export default function App() {
   }, []);
 
   return (
-    <RootSiblingParent>
-      <AppStateContext.Provider value={appState}>
-        <Loader loading={appState.loading} />
-        <NavigationContainer>
-          <Drawer.Navigator initialRouteName={screens.Home}>
-            <Drawer.Screen
-              name={screens.Home}
-              component={Home}
-              options={{
-                drawerIcon({ color, size }) {
-                  return <AntDesign name="home" size={24} color="black" />;
-                },
-              }}
-            />
-            <Drawer.Screen
-              name={screens.NotepadCreate}
-              component={NotepadCreate}
-              options={{
-                drawerIcon({ color, size }) {
-                  return <AntDesign name="form" size={24} color="black" />;
-                },
-              }}
-            />
-            <Drawer.Screen
-              name={screens.NotepadEdit}
-              component={NotepadEdit}
-              options={{
-                drawerIcon({ color, size }) {
-                  return <AntDesign name="edit" size={24} color="black" />;
-                },
-              }}
-            />
-            <Drawer.Screen
-              name={screens.NotepadList}
-              component={NotepadList}
-              options={{
-                drawerIcon({ color, size }) {
-                  return (
-                    <AntDesign name="rightcircleo" size={24} color="black" />
-                  );
-                },
-              }}
-            />
-            <Drawer.Screen
-              name={screens.NotepadView}
-              component={NotepadView}
-              options={{
-                drawerIcon({ color, size }) {
-                  return <AntDesign name="staro" size={24} color="black" />;
-                },
-              }}
-            />
-            <Drawer.Screen
-              name={screens.Maps}
-              component={Maps}
-              options={{
-                drawerIcon({ color, size }) {
-                  return <Feather name="map-pin" size={24} color="black" />;
-                },
-              }}
-            />
-          </Drawer.Navigator>
-        </NavigationContainer>
-      </AppStateContext.Provider>
-    </RootSiblingParent>
+    <React.StrictMode>
+      <RootSiblingParent>
+        <AppStateContext.Provider value={appState}>
+          <Loader loading={appState.loading} />
+          <NavigationContainer>
+            <Drawer.Navigator initialRouteName={screens.Home}>
+              <Drawer.Screen
+                name={screens.Home}
+                component={Home}
+                options={{
+                  drawerIcon({ color, size }) {
+                    return <AntDesign name="home" size={24} color="black" />;
+                  },
+                }}
+              />
+              <Drawer.Screen
+                name={screens.NotepadCreate}
+                component={NotepadCreate}
+                options={{
+                  drawerIcon({ color, size }) {
+                    return <AntDesign name="form" size={24} color="black" />;
+                  },
+                }}
+              />
+              <Drawer.Screen
+                name={screens.NotepadEdit}
+                component={NotepadEdit}
+                options={{
+                  drawerItemStyle: {
+                    display: "none",
+                  },
+                  drawerIcon({ size, color }) {
+                    return (
+                      <AntDesign name="rightcircleo" size={24} color="black" />
+                    );
+                  },
+                }}
+              />
+              <Drawer.Screen
+                name={screens.NotepadList}
+                component={NotepadList}
+                options={{
+                  drawerIcon({ color, size }) {
+                    return (
+                      <AntDesign name="rightcircleo" size={24} color="black" />
+                    );
+                  },
+                }}
+              />
+              <Drawer.Screen
+                name={screens.NotepadView}
+                component={NotepadView}
+                options={{
+                  drawerItemStyle: {
+                    display: "none",
+                  },
+                  drawerIcon({ size, color }) {
+                    return (
+                      <AntDesign name="rightcircleo" size={24} color="black" />
+                    );
+                  },
+                }}
+              />
+              <Drawer.Screen
+                name={screens.Maps}
+                component={Maps}
+                options={{
+                  drawerIcon({ color, size }) {
+                    return <Feather name="map-pin" size={24} color="black" />;
+                  },
+                }}
+              />
+            </Drawer.Navigator>
+          </NavigationContainer>
+        </AppStateContext.Provider>
+      </RootSiblingParent>
+    </React.StrictMode>
   );
 }
