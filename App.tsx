@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { Paragraph } from "./Components/Paragraph";
 import { Header } from "./Components/Header";
-import { Layout } from "./Layout/Layout";
+
 import { Home } from "./Screens/Home";
 import styled from "styled-components/native";
 import { NavigationContainer } from "@react-navigation/native";

@@ -6,31 +6,8 @@ import { MapViewNativeComponentType } from "react-native-maps/lib/MapViewNativeC
 import { api } from "../api";
 import styled from "styled-components/native";
 import MapView, { PROVIDER_GOOGLE, MapMarker } from "react-native-maps";
-import { Notepad } from "../Types/Notepad";
 
 export function Maps({ navigation, route }: NativeStackScreenProps<any>) {
-  const initialNotepad: Notepad = {
-    id: 0,
-    title: "",
-    subtitle: "",
-    created_at: "",
-    content: "",
-    latitude: null,
-    longitude: null,
-  };
-
-  const [notepad, setNotepad] = useState(initialNotepad);
-  const { id } = route.params;
-  console.log(id);
-  useEffect(() => {
-    const unsubscribe = navigation.addListener("focus", async () => {
-      const { data } = await api.get<Notepad>(`/notepads/${id}`);
-      setNotepad(data);
-    });
-
-    return unsubscribe;
-  }, [id]);
-
   const Container = styled.View`
     display: flex;
     width: 100%;

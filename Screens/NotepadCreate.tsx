@@ -7,15 +7,12 @@ import {
 } from "react-native";
 import { useState } from "react";
 
-import { ContainerScreen } from "../Components/ContainerScreen";
-import { Header } from "react-native/Libraries/NewAppScreen";
 import styled from "styled-components/native";
 import type { ParamListBase } from "@react-navigation/native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import Toast from "react-native-root-toast";
 import { api } from "../api";
 import screens from "../screens.json";
-import { TextField } from "../Components/TextField";
 
 const Texts = {
   title: "Create Notepad",
@@ -31,7 +28,31 @@ const InitialFormState = {
   content: "",
 };
 
-const FormContainer = styled.View``;
+const ContainerScreen = styled.View`
+  background-color: aliceblue;
+  height: 100%;
+  justify-content: center;
+`;
+
+const FormContainer = styled.View`
+  height: 100%;
+  display: flex;
+`;
+
+const TextField = styled.TextInput`
+  background-color: white;
+  margin: 10px;
+  height: 40px;
+  border: solid;
+`;
+
+const ContentField = styled.TextInput`
+  background-color: white;
+  margin: 10px;
+  height: 200px;
+  border: solid;
+  text-align: center;
+`;
 
 export function NotepadCreate({
   navigation,
@@ -39,13 +60,6 @@ export function NotepadCreate({
   const [form, setForm] = useState(InitialFormState);
   return (
     <ContainerScreen>
-      <Header
-        style={{
-          textAlign: "center",
-        }}
-      >
-        {Texts.title}
-      </Header>
       <FormContainer>
         <TextField
           value={form.title}
@@ -57,7 +71,7 @@ export function NotepadCreate({
           onChangeText={(subtitle) => setForm({ ...form, subtitle })}
           placeholder={Texts.subtitlePlaceholder}
         />
-        <TextField
+        <ContentField
           value={form.content}
           onChangeText={(content) => setForm({ ...form, content })}
           placeholder={Texts.contentPlaceholder}

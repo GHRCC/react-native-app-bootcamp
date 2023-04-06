@@ -18,6 +18,21 @@ const initialNotepad: Notepad = {
   longitude: null,
 };
 
+const Container = styled.View`
+  background-color: white;
+  display: flex;
+  text-align: center;
+  gap: 30px;
+  padding: 10px;
+`;
+
+const SButton = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+`;
+
 const Coords = styled.View``;
 
 export function NotepadView({
@@ -37,7 +52,7 @@ export function NotepadView({
   }, [id]);
 
   return (
-    <View>
+    <Container>
       <Text>{id}</Text>
       <Text>{new Date(notepad.created_at).toLocaleDateString()}</Text>
       <Text>{notepad.title}</Text>
@@ -48,28 +63,42 @@ export function NotepadView({
           Latitude: {notepad.latitude} Longitude: {notepad.longitude}
         </Text>
       </Coords>
-      <Button
-        title="Deletar"
-        color="#eb4d4b"
-        onPress={async () => {
-          const { data } = await api.delete(`/notepads/${id}`);
-          if (data.success) {
-            Toast.show("Notepad deletado com sucesso!");
-            navigation.navigate(screens.NotepadList);
-          } else {
-            Toast.show("Houve um erro ao deletar o seu notepad!");
-          }
-        }}
-      />
-      <Button
-        title="Editar"
-        color="#16a085"
-        onPress={async () => {
-          navigation.navigate(screens.NotepadEdit, {
-            id,
-          });
-        }}
-      />
-    </View>
+      <SButton>
+        <Button
+          title="Delete"
+          color="red"
+          onPress={async () => {
+            const { data } = await api.delete(`/notepads/${id}`);
+            if (data.success) {
+              Toast.show("Notepad deletado com sucesso!");
+              navigation.navigate(screens.NotepadList);
+            } else {
+              Toast.show("Houve um erro ao deletar o seu notepad!");
+            }
+          }}
+        />
+        <Button
+          title="Edit"
+          color="green"
+          onPress={async () => {
+            navigation.navigate(screens.NotepadEdit, {
+              id,
+            });
+          }}
+        />
+        <Button
+          title="Map"
+          color="blue"
+          onPress={() => {
+            navigation.navigate(screens.Maps, {
+              Coords: {
+                latitude: notepad.latitude,
+                longitude: notepad.longitude,
+              },
+            });
+          }}
+        />
+      </SButton>
+    </Container>
   );
 }

@@ -17,6 +17,7 @@ export function TextField() {
   return (
     <View>
       <STextInput
+        value
         placeholder="Learning React-Native"
         onChange={() => setText("string")}
       />
