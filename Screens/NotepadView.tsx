@@ -25,7 +25,7 @@ export function NotepadView({
   route,
 }: NativeStackScreenProps<any>) {
   const [notepad, setNotepad] = useState(initialNotepad);
-  const id = route.params.id;
+  const { id } = route.params;
   console.log(id);
   useEffect(() => {
     const unsubscribe = navigation.addListener("focus", async () => {
