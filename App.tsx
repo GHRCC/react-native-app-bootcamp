@@ -33,6 +33,7 @@ import { AppStateContext } from "./Components/AppState";
 import { Loader } from "./Components/Loader";
 import { api } from "./api";
 import { RootSiblingParent } from "react-native-root-siblings";
+import * as Location from "expo-location";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();

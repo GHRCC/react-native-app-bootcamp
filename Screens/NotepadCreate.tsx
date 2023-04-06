@@ -58,6 +58,7 @@ export function NotepadCreate({
   navigation,
 }: NativeStackScreenProps<ParamListBase>) {
   const [form, setForm] = useState(InitialFormState);
+
   return (
     <ContainerScreen>
       <FormContainer>
@@ -82,7 +83,7 @@ export function NotepadCreate({
           onPress={async () => {
             const { data } = await api.post("/notepads", form);
             if (data.success) {
-              Toast.show("Notepad criado com sucesso!");
+              Toast.show("Success!");
               navigation.navigate(screens.NotepadList);
             } else {
               Toast.show(data.errors[0].message);
